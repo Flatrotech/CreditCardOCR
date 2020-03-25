@@ -109,6 +109,7 @@ namespace Credit_Card_OCR
         /// <returns>A list of ROI mat objects</returns>
         private static List<Mat> FindandFilterContours(Mat originalImage, Mat filteredImage)
         {
+            //Variable used for debugging
             Mat smallerOutput = new Mat();
 
             //Create a blank image that will be used to display contours
