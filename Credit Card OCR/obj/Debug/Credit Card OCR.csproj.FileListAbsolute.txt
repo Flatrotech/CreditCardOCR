@@ -1,0 +1,51 @@
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Credit Card OCR.exe.config
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Credit Card OCR.exe
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Credit Card OCR.pdb
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR.csprojAssemblyReference.cache
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\MainWindow.g.cs
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\App.g.cs
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR_MarkupCompile.cache
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR_MarkupCompile.lref
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\MainWindow.baml
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR.g.resources
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit_Card_OCR.Properties.Resources.resources
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR.csproj.GenerateResource.cache
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR.exe
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR.pdb
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\concrt140.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\cvextern.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\msvcp140.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\msvcp140_1.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\msvcp140_2.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\msvcp140_codecvt_ids.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\opencv_videoio_ffmpeg420_64.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\vcruntime140.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x64\vcruntime140_1.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\concrt140.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\cvextern.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\msvcp140.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\msvcp140_1.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\msvcp140_2.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\msvcp140_codecvt_ids.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\opencv_videoio_ffmpeg420.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\x86\vcruntime140.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Emgu.CV.UI.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Emgu.CV.World.NetStandard.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\ZedGraph.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Emgu.CV.UI.xml
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\Emgu.CV.World.NetStandard.xml
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\ZedGraph.xml
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\jones\Desktop\Programming\CreditCardReaderEmgucv\Credit Card OCR\Credit Card OCR\obj\Debug\Credit Card OCR.csproj.CopyComplete
