@@ -21,14 +21,18 @@ namespace Credit_Card_OCR
         //Pass it through a veriety of filters
         //Find contours
         //Sort contours from left to right
-        //Read all text in each ROI
+        //Read all text in each sorted relevent ROI
 
 
         //Declare a new Tesseract OCR engine
         private static Tesseract _ocr;
 
+        //This variable is used for debugging purposes
+        static Mat smallerOutput = new Mat();
+
         /// <summary>
         /// Set the dictionary and whitelist for Tesseract
+        /// Need to investigate if the whitelist works in later vertions of tesseract
         /// </summary>
         /// <param name="dataPath"></param>
         public static void SetTesseractObjects(string dataPath)
@@ -46,7 +50,7 @@ namespace Credit_Card_OCR
         {
             //Change this file path to the path where the images you want to stich are located
             string filePath = Directory.GetParent(Directory.GetParent
-                (Environment.CurrentDirectory).ToString()).ToString() + @"/Images/creditCard2.png";
+                (Environment.CurrentDirectory).ToString()) + @"/Images/creditCard.png";
 
             //Read in the image from the filepath
             Mat img = CvInvoke.Imread(filePath, ImreadModes.AnyColor);
@@ -62,9 +66,6 @@ namespace Credit_Card_OCR
         /// <returns>A list of Mat ROIs</returns>
         private static List<Mat> ImageProccessing(Mat img)
         {
-            //This variable is used for debugging purposes
-            Mat smallerOutput = new Mat();
-
             //Resize the image for better uniformitty throughout the code
             CvInvoke.Resize(img, img, new Size(700, 500));
 
@@ -76,26 +77,16 @@ namespace Credit_Card_OCR
             //Blur the image
             CvInvoke.GaussianBlur(img, img, new Size(5, 5), 8, 8);
 
-            //Output the denoised canny image
-            CvInvoke.Resize(img, smallerOutput, new Size(img.Width, img.Height));
-            CvInvoke.Imshow("Blurred Image", smallerOutput);
-
+            //Threshold the image
             CvInvoke.AdaptiveThreshold(img, img, 30, AdaptiveThresholdType.GaussianC, ThresholdType.Binary, 5, 6);
-
-            //Output the denoised canny image
-            CvInvoke.Resize(img, smallerOutput, new Size(img.Width, img.Height));
-            CvInvoke.Imshow("Thresholded Image", smallerOutput);
 
             //Canny the image
             CvInvoke.Canny(img, img, 8, 8);
 
-            //Output the denoised canny image
-            CvInvoke.Resize(img, smallerOutput, new Size(img.Width, img.Height));
-            CvInvoke.Imshow("Canny Image", smallerOutput);
-
             //Dilate the canny image
             CvInvoke.Dilate(img, img, null, new Point(-1, -1), 8, BorderType.Constant, new MCvScalar(0, 255, 255));
 
+            //Filter the contours to only find relevent ones
             List<Mat> foundOutput = FindandFilterContours(imgClone, img);
 
             return foundOutput;
@@ -109,10 +100,9 @@ namespace Credit_Card_OCR
         /// <returns>A list of ROI mat objects</returns>
         private static List<Mat> FindandFilterContours(Mat originalImage, Mat filteredImage)
         {
-            Mat smallerOutput = new Mat();
-
             //Create a blank image that will be used to display contours
             Image<Bgr, byte> blankImage = new Image<Bgr, byte>(originalImage.Width, originalImage.Height);
+
             //Clone the input image
             Image<Bgr, byte> originalImageClone = originalImage.Clone().ToImage<Bgr, byte>();
 
@@ -122,10 +112,6 @@ namespace Credit_Card_OCR
             //Find and draw the contours on the blank image
             CvInvoke.FindContours(filteredImage, contours, null, RetrType.Ccomp, ChainApproxMethod.ChainApproxSimple);
             CvInvoke.DrawContours(blankImage, contours, -1, new MCvScalar(255, 0, 0));
-
-            //Show the blank image with contours drawn on it
-            CvInvoke.Resize(blankImage, smallerOutput, new Size(originalImage.Width, originalImage.Height));
-            CvInvoke.Imshow("Contour Image", smallerOutput);
 
             //Create two copys of the cloned image of the input image
             Image<Bgr, byte> allContoursDrawn = originalImageClone.Copy();
@@ -160,7 +146,7 @@ namespace Credit_Card_OCR
                 //If a bounding rectangle fits certain dementions, add it's x value to another list
                 if ((listRectangles[i].Width < 400) && (listRectangles[i].Height < 400)
                     && (listRectangles[i].Y > 200) && (listRectangles[i].Y < 300) && 
-                    (listRectangles[i].Width > 50) && (listRectangles[i].Height > 50))
+                    (listRectangles[i].Width > 50) && (listRectangles[i].Height > 40))
                 {
                     originalImageClone.ROI = listRectangles[i];
 
@@ -199,9 +185,11 @@ namespace Credit_Card_OCR
 
             CvInvoke.Resize(allContoursDrawn, smallerOutput, new Size(originalImage.Width, originalImage.Height));
             CvInvoke.Imshow("Boxes Drawn on Image", smallerOutput);
+            CvInvoke.WaitKey(0);
 
             CvInvoke.Resize(finalCopy, smallerOutput, new Size(originalImage.Width, originalImage.Height));
             CvInvoke.Imshow("Boxes Drawn on FinalCopy", smallerOutput);
+            CvInvoke.WaitKey(0);
 
             return outputImages;
         }
@@ -215,7 +203,7 @@ namespace Credit_Card_OCR
         {
             //Change this file path to the path where the images you want to stich are located
             string filePath = Directory.GetParent(Directory.GetParent
-                (Environment.CurrentDirectory).ToString()).ToString() + @"/Tessdata/";
+                (Environment.CurrentDirectory).ToString()) + @"/Tessdata/";
 
             //Declare the use of the dictonary
             SetTesseractObjects(filePath);
@@ -223,6 +211,7 @@ namespace Credit_Card_OCR
             //Get all cropped regions
             List<Mat> croppedRegions = ImageProccessing(img);
 
+            //String that will hold the output of the detected text
             string output = "";
 
             Tesseract.Character[] words;
