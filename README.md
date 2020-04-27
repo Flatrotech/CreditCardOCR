@@ -1,7 +1,20 @@
 # CreditCardOCR
-Recognizes the card number on an image of a credit card.
 
-Still in the early stages of development, with the program currently only having the ability to read text on a card at a basic level.
+Created in C# using the wrapper of Opencv called Emgucv, this repo was created as a side project of mine to practice computer vison and character recognition.
+
+![Image of Credit Card](https://github.com/jonesaaron993/CreditCardOCR/blob/master/Credit%20Card%20OCR/Images/creditCard.png)
+
+All contours found with bounding boxes created.
+
+![Credit Card All Boxes](https://aaronsprogrammingblog.files.wordpress.com/2020/04/allboxesdrawn.png)
+
+Bounding Boxes Sorted.
+
+![Credit Card With Only Specific Boxes](https://aaronsprogrammingblog.files.wordpress.com/2020/04/finalboxesdrawn.png)
+
+The detected characters outputed.
+
+![Output](https://aaronsprogrammingblog.files.wordpress.com/2020/04/application.png)
 
 TODO:
 Have the ability to take an image of a card and alight it so the card is perfectly centered no matter what angle the picture of the card was taken at.
