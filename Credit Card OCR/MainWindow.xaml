@@ -13,12 +13,14 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-        
-        <ListBox x:Name="lstOutput" HorizontalAlignment="Center" Height="30" Grid.Column="0" VerticalAlignment="Center" Width="700" Grid.Row="1"/>
-        <Button x:Name="btnOCR" Content="Open Image" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="100" Click="btnOCR_Click"/>
-        <Image x:Name="imgOutput" HorizontalAlignment="Center" Height="374" VerticalAlignment="Center" Width="696" Grid.Column="0" Grid.ColumnSpan="2" Stretch="Fill"/>
+
+        <ListBox x:Name="lstOutput" HorizontalAlignment="Center" Height="30" Grid.Column="0" VerticalAlignment="Center" Width="500" Grid.Row="1"/>
+        <Button x:Name="btnOCR" Content="Capture Image" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Width="100" Click="btnOCR_Click"/>
+        <Button x:Name="btnStart" Content="Start Webcam" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Bottom" Width="100" Click="btnStart_Click"/>
+        <Image x:Name="imgOutput" HorizontalAlignment="Center" Height="374" VerticalAlignment="Center" Width="696" Grid.Column="0" Grid.ColumnSpan="1" Stretch="Fill"/>
+        <Image x:Name="webcamOutput" Grid.Column="1" HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Grid.Row="0" Width="300" Stretch="Fill"/>
 
     </Grid>
 </Window>

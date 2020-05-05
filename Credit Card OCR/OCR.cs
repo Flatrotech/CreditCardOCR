@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Drawing;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace Credit_Card_OCR
 {
@@ -16,14 +17,6 @@ namespace Credit_Card_OCR
     /// </summary>
     class OCR
     {
-        //Proccess flow of algorithm:
-        //Read in the image
-        //Pass it through a veriety of filters
-        //Find contours
-        //Sort contours from left to right
-        //Read all text in each sorted relevent ROI
-
-
         //Declare a new Tesseract OCR engine
         private static Tesseract _ocr;
 
@@ -216,24 +209,31 @@ namespace Credit_Card_OCR
 
             Tesseract.Character[] words;
 
-            //Loop over all ROIs and detect text on each image
-            for (int i = 0; i < croppedRegions.Count; i++)
+            try
             {
-                StringBuilder strBuilder = new StringBuilder();
-
-                //Set and detect text on the image
-                _ocr.SetImage(croppedRegions[i]);
-                _ocr.Recognize();
-
-                words = _ocr.GetCharacters();
-
-                for (int j = 0; j < words.Length; j++)
+                //Loop over all ROIs and detect text on each image
+                for (int i = 0; i < croppedRegions.Count; i++)
                 {
-                    strBuilder.Append(words[j].Text);
-                }
+                    StringBuilder strBuilder = new StringBuilder();
 
-                //Pass the stringbuilder into a string variable
-                output += strBuilder.ToString() + " ";
+                    //Set and detect text on the image
+                    _ocr.SetImage(croppedRegions[i]);
+                    _ocr.Recognize();
+
+                    words = _ocr.GetCharacters();
+
+                    for (int j = 0; j < words.Length; j++)
+                    {
+                        strBuilder.Append(words[j].Text);
+                    }
+
+                    //Pass the stringbuilder into a string variable
+                    output += strBuilder.ToString() + " ";
+                }
+            }
+            catch(AccessViolationException)
+            {
+                MessageBox.Show("There was a problem with the input image, please retake the image");
             }
 
             //Return a string
