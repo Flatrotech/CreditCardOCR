@@ -2,22 +2,31 @@
 
 Created in C# using the wrapper of Opencv called Emgucv, this repo was created as a side project of mine to practice computer vison and character recognition.
 
-![Image of Credit Card](https://github.com/jonesaaron993/CreditCardOCR/blob/master/Credit%20Card%20OCR/Images/creditCard.png)
+<p align="center">
+  <img src="https://github.com/jonesaaron993/CreditCardOCR/blob/master/Credit%20Card%20OCR/Images/creditCard.png"/>
+</p>
 
 All contours found with bounding boxes created.
 
-![Credit Card All Boxes](https://aaronsprogrammingblog.files.wordpress.com/2020/04/allboxesdrawn.png)
+<p align="center">
+  <img src="https://aaronsprogrammingblog.files.wordpress.com/2020/04/allboxesdrawn.png"/>
+</p>
 
 Bounding Boxes Sorted.
 
-![Credit Card With Only Specific Boxes](https://aaronsprogrammingblog.files.wordpress.com/2020/04/finalboxesdrawn.png)
+<p align="center">
+  <img src="https://aaronsprogrammingblog.files.wordpress.com/2020/04/finalboxesdrawn.png"/>
+</p>
 
 The detected characters outputed.
 
-![Output](https://aaronsprogrammingblog.files.wordpress.com/2020/04/application.png)
+<p align="center">
+  <img src="https://aaronsprogrammingblog.files.wordpress.com/2020/04/application.png"/>
+</p>
 
-TODO:
-Have the ability to take an image of a card and alight it so the card is perfectly centered no matter what angle the picture of the card was taken at.
-Improve accuracy with recognizing characters.
+**CURRENT STATE:** Have added support for a camera and can take photo with the said camera.
+
+**TODO:** Detect credit card in photo taken from camera, and sort through the image to only include credit card numbers.
+
 
 All code under the MIT Licence.
