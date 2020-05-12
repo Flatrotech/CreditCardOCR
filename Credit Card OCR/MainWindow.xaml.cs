@@ -16,6 +16,7 @@ namespace Credit_Card_OCR
     /// </summary>
     public partial class MainWindow : Window
     {
+        //The video capture stream that holds the video from the camera
         public VideoCapture stream = new VideoCapture(0);
 
         bool isStream = false;
@@ -27,20 +28,20 @@ namespace Credit_Card_OCR
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-
+            //Declare that a video stream is being used
             isStream = true;
 
+            //Start grabbing frames from the webcame input
             stream.ImageGrabbed += Capture_ImageGrabbed1;
             stream.Start();
         }
 
         private void Capture_ImageGrabbed1(object sender, EventArgs e)
         {
-            Mat m = new Mat();
-            stream.Retrieve(m);
+            //Get the frame
+            Bitmap frame = CameraConfig.GetFrame(stream);
 
-            Bitmap frame = m.ToBitmap();
-
+            //Pass each frame from the video capture to the output image
             this.Dispatcher.Invoke(() =>
             {
                 webcamOutput.Source = ImageSourceFromBitmap(frame);
@@ -49,21 +50,19 @@ namespace Credit_Card_OCR
 
         private void btnOCR_Click(object sender, RoutedEventArgs e)
         {
+            //Mat object to hold image that is taken
             Mat img = new Mat();
 
+            //If a video stream is currently happening, do the following, else do the last
             if (isStream == true)
             {
-                stream.Pause();
+                //Get the taken picture from the video stream
+                Image<Bgr, byte> inputImg = CameraConfig.TakePicture(stream);
 
-                var randomTest = stream.QueryFrame().ToImage<Bgr, byte>();
-                var capture = randomTest.ToBitmap();
-
-                stream.Start();
-
-                Image<Bgr, byte> inputImg = capture.ToImage<Bgr, byte>();
-
+                //Align the video capture image
                 img = AutoAlignment.Align(inputImg.Mat);
 
+                //Pass the bitmap image to be displayed
                 imgOutput.Source = ImageSourceFromBitmap(img.ToBitmap());
             }
             else
@@ -104,6 +103,5 @@ namespace Credit_Card_OCR
             }
             finally { DeleteObject(handle); }
         }
-
     }
 }
