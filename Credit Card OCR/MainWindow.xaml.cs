@@ -1,21 +1,13 @@
 ﻿using Emgu.CV;
+using Emgu.CV.Structure;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Credit_Card_OCR
 {
@@ -24,19 +16,66 @@ namespace Credit_Card_OCR
     /// </summary>
     public partial class MainWindow : Window
     {
+        public VideoCapture stream = new VideoCapture(0);
+
+        bool isStream = false;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
+        private void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+
+            isStream = true;
+
+            stream.ImageGrabbed += Capture_ImageGrabbed1;
+            stream.Start();
+        }
+
+        private void Capture_ImageGrabbed1(object sender, EventArgs e)
+        {
+            Mat m = new Mat();
+            stream.Retrieve(m);
+
+            Bitmap frame = m.ToBitmap();
+
+            this.Dispatcher.Invoke(() =>
+            {
+                webcamOutput.Source = ImageSourceFromBitmap(frame);
+            });
+        }
+
         private void btnOCR_Click(object sender, RoutedEventArgs e)
         {
-            //Read in the desired image
-            Mat img = OCR.ReadInImage();
+            Mat img = new Mat();
 
-            //Convert the image to a bitmap, then to an image scource
-            Bitmap bit = img.ToBitmap();
-            imgOutput.Source = ImageSourceFromBitmap(bit);
+            if (isStream == true)
+            {
+                stream.Pause();
+
+                var randomTest = stream.QueryFrame().ToImage<Bgr, byte>();
+                var capture = randomTest.ToBitmap();
+
+                stream.Start();
+
+                Image<Bgr, byte> inputImg = capture.ToImage<Bgr, byte>();
+
+                img = AutoAlignment.Align(inputImg.Mat);
+
+                imgOutput.Source = ImageSourceFromBitmap(img.ToBitmap());
+            }
+            else
+            {
+                //Read in the desired image
+                img = OCR.ReadInImage();
+
+                //Convert the image to a bitmap, then to an image scource
+                Bitmap bit = img.ToBitmap();
+                imgOutput.Source = ImageSourceFromBitmap(bit);
+
+            }
 
             //Detect the text from the image
             string detectedText = OCR.RecognizeText(img);
@@ -65,5 +104,6 @@ namespace Credit_Card_OCR
             }
             finally { DeleteObject(handle); }
         }
+
     }
 }
