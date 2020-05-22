@@ -70,7 +70,7 @@ namespace Credit_Card_OCR
                 //Read in the desired image
                 img = OCR.ReadInImage();
 
-                //Convert the image to a bitmap, then to an image scource
+                //Convert the image to a bitmap, then to an image source
                 Bitmap bit = img.ToBitmap();
                 imgOutput.Source = ImageSourceFromBitmap(bit);
 
